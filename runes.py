@@ -33,6 +33,15 @@ def main():
         with open('champs.json') as file:
             champs = json.load(file)
 
+    try:
+        with open('runes.json') as file:
+            rn = json.load(file)
+    except FileNotFoundError:
+        get_runes('runes.json')
+        with open('runes.json') as file:
+            rn = json.load(file)
+
+
     root = Tk()
     root.geometry("400x120")
 
@@ -54,14 +63,12 @@ def main():
     tree_choose = Combobox(root, textvariable=tree, values=['Mais Popular', 'Melhor Winrate'], width=15)
     tree_choose.place(x = 200, y=20)
 
-    button = Button(root, text="Start", command= lambda: make_page(get_tree(tkvar.get(), pos.get(), tree.get()), lang.get()))
+    button = Button(root, text="Start", command= lambda: make_page(get_tree(tkvar.get(), pos.get(), tree.get(), rn), lang.get()))
     button.place(x=250, y=70)
 
     root.mainloop()
 
-def get_tree(champion, pos, tree):
-    with open('m.json') as file:
-        rn = json.load(file)
+def get_tree(champion, pos, tree, rn):
 
     r = get("http://champion.gg/champion/{}/{}".format(champion, pos))
     runes = []
@@ -126,6 +133,11 @@ def get_champions(file):
     with open(file, 'w') as out:
         json.dump(c, out)
 
+def get_runes(file):
+    r = get("https://raw.githubusercontent.com/CrazyHatish/Runes/master/runes.json")
+
+    with open(file, 'w') as out:
+        json.dump(r.json(), out)
 
 
 if __name__ == "__main__":
