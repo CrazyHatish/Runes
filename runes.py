@@ -2,7 +2,7 @@ import pyautogui as pygui
 import json
 from bs4 import BeautifulSoup
 from re import compile
-from tkinter import Tk, StringVar
+from tkinter import Tk, StringVar, Menu
 from tkinter.ttk import Combobox, Button
 from time import sleep, time
 from requests import get
@@ -60,7 +60,8 @@ def main():
 
 
     root = Tk()
-    root.geometry("400x120")
+    root.title("Runes")
+    root.geometry("350x120")
 
     tkvar, lang, pos, tree = (StringVar(root), StringVar(root), StringVar(root), StringVar(root))
     tkvar.set("Aatrox")
@@ -70,23 +71,23 @@ def main():
 
     menu = Combobox(root, textvariable=tkvar, values=champs)
     menu.bind("<<ComboboxSelected>>", update_pos)
-    menu.place(x = 50, y=70)
+    menu.place(x = 20, y=70)
 
     language = Combobox(root, textvariable=lang, values=['en', 'pt'], width=2)
-    language.place(x = 50, y=20)
+    language.place(x = 20, y=20)
 
-    position = Combobox(root, textvariable=pos, values=positions[tkvar.get().lower()], width=6)
-    position.place(x = 120, y=20)
+    position = Combobox(root, textvariable=pos, values=positions[tkvar.get().lower()], width=7)
+    position.place(x = 90, y=20)
 
     tree_choose = Combobox(root, textvariable=tree, values=['Mais Popular', 'Melhor Winrate'], width=15)
-    tree_choose.place(x = 200, y=20)
+    tree_choose.place(x = 180, y=20)
 
     button = Button(root, text="Start", command= lambda:
                                                     make_page(
                                                         get_tree(tkvar.get(), pos.get(), tree.get(), rn),
                                                         lang.get(), scale)
                                                         )
-    button.place(x=250, y=70)
+    button.place(x=225, y=68)
 
     root.mainloop()
 
@@ -151,16 +152,18 @@ def click_client(x, y):
     sleep(0.2)
 
 def get_champions(file):
-    champs = []
     c = []
-    r = get("https://ddragon.leagueoflegends.com/cdn/7.22.1/data/en_US/champion.json")
-    champs = r.json()
+    r = get("http://champion.gg")
+    s = r.text
 
-    for k, v in champs['data'].items():
-        c.append(k)
+    reg = compile("\/champion\/(.*)\/\w*\"")
+    for champ in reg.findall(s):
+        if champ not in c:
+            c.append(champ)
+
 
     with open(file, 'w') as out:
-        json.dump(c, out)
+        json.dump(sorted(c), out)
 
 def get_runes(file):
     r = get("https://raw.githubusercontent.com/CrazyHatish/Runes/master/runes.json")
@@ -170,13 +173,25 @@ def get_runes(file):
 
 def get_pos(champs):
     pos = {champ.lower(): [] for champ in champs}
+
     r = get("http://champion.gg")
     s = r.text
 
     reg = compile("\/champion\/(.*)\/(\w*)\"")
-    for p in reg.findall(s):
-        if p[1] not in pos[p[0].lower()]:
-            pos[p[0].lower()].append(p[1])
+    try:
+        for p in reg.findall(s):
+            if p[1] not in pos[p[0].lower()]:
+                pos[p[0].lower()].append(p[1])
+    except KeyError:
+        get_champions('champs.json')
+        with open('champs.json') as file:
+            champs = json.load(file)
+
+        pos = {champ.lower(): [] for champ in champs}
+        for p in reg.findall(s):
+            if p[1] not in pos[p[0].lower()]:
+                pos[p[0].lower()].append(p[1])
+
 
     return pos
 
