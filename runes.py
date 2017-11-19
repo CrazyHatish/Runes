@@ -103,14 +103,29 @@ def get_tree(champion, pos, tree, rn):
     for element in range(len(right_side)):
         if tree == "Mais Popular" and element >= 8 or tree == "Melhor Winrate" and element < 8:
             m = str(right_side[element].find("div", compile("Description__Title*")).string)
-            if rn.get(m, None) is not None:
-                x = 0
-                if keystone != "" and rn[m][0] > rn[keystone][0]:
-                    x = 1
-                keystone = m
-                runes.append(rn[m][0] - x)
-            else:
-                runes.append(rn[keystone][1][m])
+            try:
+                if rn.get(m, None) is not None:
+                    x = 0
+                    if keystone != "" and rn[m][0] > rn[keystone][0]:
+                        x = 1
+                    keystone = m
+                    runes.append(rn[m][0] - x)
+                else:
+                    runes.append(rn[keystone][1][m])
+            except KeyError:
+                get_runes('runes.json')
+                with open('runes.json') as file:
+                    rn = json.load(file)
+
+                if rn.get(m, None) is not None:
+                    x = 0
+                    if keystone != "" and rn[m][0] > rn[keystone][0]:
+                        x = 1
+                    keystone = m
+                    runes.append(rn[m][0] - x)
+                else:
+                    runes.append(rn[keystone][1][m])
+
 
     return runes
 
