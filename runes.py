@@ -73,13 +73,13 @@ def main():
     menu.bind("<<ComboboxSelected>>", update_pos)
     menu.place(x = 20, y=70)
 
-    language = Combobox(root, textvariable=lang, values=['en', 'pt'], width=2)
+    language = Combobox(root, textvariable=lang, values=['en', 'pt'], state='readonly', width=2)
     language.place(x = 20, y=20)
 
-    position = Combobox(root, textvariable=pos, values=positions[tkvar.get().lower()], width=7)
+    position = Combobox(root, textvariable=pos, values=positions[tkvar.get().lower()], state='readonly', width=7)
     position.place(x = 90, y=20)
 
-    tree_choose = Combobox(root, textvariable=tree, values=['Mais Popular', 'Melhor Winrate'], width=15)
+    tree_choose = Combobox(root, textvariable=tree, values=['Mais Popular', 'Melhor Winrate'], state='readonly', width=15)
     tree_choose.place(x = 180, y=20)
 
     button = Button(root, text="Start", command= lambda:
