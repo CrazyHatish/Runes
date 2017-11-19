@@ -22,6 +22,10 @@ client = 0
 
 
 def main():
+    def update_pos(*args):
+        position.config(values=positions[tkvar.get().lower()])
+        pos.set(positions[tkvar.get().lower()][0])
+
     champs = []
     scale = 0.8
 
@@ -49,6 +53,7 @@ def main():
         with open('runes.json') as file:
             rn = json.load(file)
 
+    positions = get_pos(champs)
     screen_size = pygui.size()
     global client
     client = (screen_size[0]/2 - (1024 * scale/0.8)/2, (screen_size[1]-get_taskbar_size())/2 - (576 * scale/0.8)/2)
@@ -64,12 +69,13 @@ def main():
     tree.set("Mais Popular")
 
     menu = Combobox(root, textvariable=tkvar, values=champs)
+    menu.bind("<<ComboboxSelected>>", update_pos)
     menu.place(x = 50, y=70)
 
     language = Combobox(root, textvariable=lang, values=['en', 'pt'], width=2)
     language.place(x = 50, y=20)
 
-    position = Combobox(root, textvariable=pos, values=['Top', 'Jungle', 'Middle', 'ADC', 'Support'], width=6)
+    position = Combobox(root, textvariable=pos, values=positions[tkvar.get().lower()], width=6)
     position.place(x = 120, y=20)
 
     tree_choose = Combobox(root, textvariable=tree, values=['Mais Popular', 'Melhor Winrate'], width=15)
@@ -147,7 +153,7 @@ def click_client(x, y):
 def get_champions(file):
     champs = []
     c = []
-    r = get("https://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json")
+    r = get("https://ddragon.leagueoflegends.com/cdn/7.22.1/data/en_US/champion.json")
     champs = r.json()
 
     for k, v in champs['data'].items():
@@ -161,6 +167,18 @@ def get_runes(file):
 
     with open(file, 'w') as out:
         json.dump(r.json(), out)
+
+def get_pos(champs):
+    pos = {champ.lower(): [] for champ in champs}
+    r = get("http://champion.gg")
+    s = r.text
+
+    reg = compile("\/champion\/(.*)\/(\w*)\"")
+    for p in reg.findall(s):
+        if p[1] not in pos[p[0].lower()]:
+            pos[p[0].lower()].append(p[1])
+
+    return pos
 
 
 if __name__ == "__main__":
