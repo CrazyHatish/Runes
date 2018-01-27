@@ -136,7 +136,7 @@ def make_page(runes, lang, scale):
         }
 
     coords = [
-        (326, 549), l_coords[lang][0],
+        (350, 545), l_coords[lang][0],
         (484, 306), l_coords[lang][1],
         'sleep',
         (170*runes[0], 183), (203 + 54*(runes[1]-1), 262),
