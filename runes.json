@@ -1,1 +1,88 @@
-{"Precision": [1, {"Press the Attack": 1, "Lethal Tempo": 2, "Fleet Footwork": 3, "Overheal": 4, "Triumph": 5, "Presence of Mind": 6, "Legend: Alacrity": 7, "Legend: Tenacity": 8, "Legend: Bloodline": 9, "Coup de Grace": 10, "Cut Down": 11, "Last Stand": 12}], "Domination": [2, {"Electrocute": 1, "Predator": 2, "Dark Harvest": 3, "Cheap Shot": 4, "Taste of Blood": 5, "Sudden Impact": 6, "Zombie Ward": 7, "Ghost Poro": 8, "Eyeball Collection": 9, "Ravenous Hunter": 10, "Ingenious Hunter": 11, "Relentless Hunter": 12}], "Sorcery": [3, {"Summon Aery": 1, "Arcane Comet": 2, "Phase Rush": 3, "Nullifying Orb": 4, "Manaflow Band": 5, "The Ultimate Hat": 6, "Transcendence": 7, "Celerity": 8, "Absolute Focus": 9, "Scorch": 10, "Waterwalking": 11, "Gathering Storm": 12}], "Resolve": [4, {"Grasp of the Undying": 1, "Aftershock": 2, "Guardian": 3, "Unflinching": 4, "Demolish": 5, "Font of Life": 6, "Iron Skin": 7, "Mirror Shell": 8, "Conditioning": 9, "Overgrowth": 10, "Revitalize": 11, "Second Wind": 12}], "Inspiration": [5, {"Unsealed Spellbook": 1, "Glacial Augment": 2, "Kleptomancy": 3, "Hextech Flashtraption": 4, "Magical Footwear": 5, "Perfect Timing": 6, "Future's Market": 7, "Minion Dematerializer": 8, "Biscuit Delivery": 9, "Cosmic Insight": 10, "Approach Velocity": 11, "Celestial Body": 12}]}
+{
+  "Precision": [
+    1,
+    {
+      "Press the Attack": 1,
+      "Lethal Tempo": 2,
+      "Fleet Footwork": 3,
+      "Overheal": 4,
+      "Triumph": 5,
+      "Presence of Mind": 6,
+      "Legend: Alacrity": 7,
+      "Legend: Tenacity": 8,
+      "Legend: Bloodline": 9,
+      "Coup de Grace": 10,
+      "Cut Down": 11,
+      "Last Stand": 12
+    }
+  ],
+  "Domination": [
+    2,
+    {
+      "Electrocute": 1,
+      "Predator": 2,
+      "Dark Harvest": 3,
+      "Cheap Shot": 4,
+      "Taste of Blood": 5,
+      "Sudden Impact": 6,
+      "Zombie Ward": 7,
+      "Ghost Poro": 8,
+      "Eyeball Collection": 9,
+      "Ravenous Hunter": 10,
+      "Ingenious Hunter": 11,
+      "Relentless Hunter": 12
+    }
+  ],
+  "Sorcery": [
+    3,
+    {
+      "Summon Aery": 1,
+      "Arcane Comet": 2,
+      "Phase Rush": 3,
+      "Nullifying Orb": 4,
+      "Manaflow Band": 5,
+      "The Ultimate Hat": 6,
+      "Transcendence": 7,
+      "Celerity": 8,
+      "Absolute Focus": 9,
+      "Scorch": 10,
+      "Waterwalking": 11,
+      "Gathering Storm": 12
+    }
+  ],
+  "Resolve": [
+    4,
+    {
+      "Grasp of the Undying": 1,
+      "Aftershock": 2,
+      "Guardian": 3,
+      "Demolish": 4,
+      "Font of Life": 5,
+      "Bone Plating": 6,
+      "Iron Skin": 6.87,
+      "Mirror Shell": 7.59,
+      "Conditioning": 8.33,
+	  "Second Wind": 9.07,
+      "Overgrowth": 10,
+      "Revitalize": 11,
+      "Unflinching": 12
+    }
+  ],
+  "Inspiration": [
+    5,
+    {
+      "Unsealed Spellbook": 1,
+      "Glacial Augment": 2,
+      "Kleptomancy": 3,
+      "Hextech Flashtraption": 4,
+      "Biscuit Delivery": 5,
+      "Perfect Timing": 6,
+      "Magical Footwear": 7,
+      "Future's Market": 8,
+      "Minion Dematerializer": 9,
+      "Cosmic Insight": 10,
+      "Approach Velocity": 11,
+      "Celestial Body": 12
+    }
+  ]
+}
