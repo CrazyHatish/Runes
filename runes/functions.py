@@ -105,7 +105,7 @@ def get_champions(file):
 
 
 def get_runes(file):
-    r = get("https://raw.githubusercontent.com/CrazyHatish/Runes/master/runes.json")
+    r = get("https://raw.githubusercontent.com/CrazyHatish/Runes/master/runes/runes.json")
 
     with open(file, "w") as out:
         json.dump(r.json(), out)
