@@ -3,8 +3,9 @@
     1,
     {
       "Press the Attack": 1,
-      "Lethal Tempo": 2,
-      "Fleet Footwork": 3,
+      "Lethal Tempo": 1.59,
+      "Fleet Footwork": 2.33,
+      "Conqueror": 3.07,
       "Overheal": 4,
       "Triumph": 5,
       "Presence of Mind": 6,
@@ -59,10 +60,9 @@
       "Demolish": 4,
       "Font of Life": 5,
       "Bone Plating": 6,
-      "Iron Skin": 7,
-      "Mirror Shell": 7.59,
-      "Conditioning": 8.33,
-      "Second Wind": 9.07,
+      "Conditioning": 7,
+      "Second Wind": 8,
+      "Chrysalis": 9,
       "Overgrowth": 10,
       "Revitalize": 11,
       "Unflinching": 12
@@ -71,18 +71,18 @@
   "Inspiration": [
     5,
     {
-      "Unsealed Spellbook": 1,
-      "Glacial Augment": 2,
-      "Kleptomancy": 3,
+      "Glacial Augment": 1,
+      "Kleptomancy": 2,
+      "Unsealed Spellbook": 3,
       "Hextech Flashtraption": 4,
-      "Biscuit Delivery": 5,
+      "Magical Footwear": 5,
       "Perfect Timing": 6,
-      "Magical Footwear": 7,
-      "Future's Market": 8,
-      "Minion Dematerializer": 9,
+      "Future's Market": 7,
+      "Minion Dematerializer": 8,
+      "Biscuit Delivery": 9,
       "Cosmic Insight": 10,
       "Approach Velocity": 11,
-      "Celestial Body": 12
+      "Time Warping Tonic": 12
     }
   ]
 }
