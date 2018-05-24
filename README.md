@@ -12,9 +12,15 @@ Download the most recent executable from [the releases tab](https://github.com/C
 
 
 ### With Python
-Download the source code as a [zip](https://github.com/CrazyHatish/Runes/archive/master.zip) or
-``` git clone https://github.com/CrazyHatish/Runes.git ```
-, navigate to the directory, run ```pip install -r requirements.txt```
+Download the source code as a [zip](https://github.com/CrazyHatish/Runes/archive/master.zip) , navigate to the directory, and run ```pip install -r requirements.txt```
+
+OR
+
+```
+git clone https://github.com/CrazyHatish/Runes.git 
+cd Runes
+pip install - r requirements.txt
+```
 
 ## Usage
 
